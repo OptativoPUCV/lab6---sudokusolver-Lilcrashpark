@@ -147,9 +147,9 @@ Node* DFS(Node* initial, int* cont)
     {
         Node* n = top(S);
         pop(S);
-        if (is_final(n))
+        if (is_final(n)) 
         {
-           return 0;
+           return n;
         }
         List* list = get_adj_nodes(n);
         Node* adj;
