@@ -81,3 +81,14 @@ Fri 17 May 2024 02:22:13 AM UTC:
  1 file changed, 18 insertions(+), 1 deletion(-)
  tests:  0|0
 f6c1783
+Fri 17 May 2024 02:24:15 AM UTC: 
+ sudoku.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:162:10: error: implicit declaration of function ‘remove_first’ [-Werror=implicit-function-declaration]
+  162 |          remove_first(list);
+      |          ^~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+d5c6d22

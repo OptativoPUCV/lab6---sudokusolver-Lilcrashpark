@@ -158,11 +158,16 @@ Node* DFS(Node* initial, int* cont)
       while ((adj = first(list)) != NULL)
       {
          push(S, adj);
+         // Asumiendo que first() no elimina el nodo de la lista, eliminamos manualmente el nodo visitado.
+         remove_first(list);
       }
+      // Incrementamos el contador de nodos visitados si es necesario.
+      if (cont != NULL) (*cont)++;
       free(n);
    }
    return NULL;
 }
+
 
 
 
