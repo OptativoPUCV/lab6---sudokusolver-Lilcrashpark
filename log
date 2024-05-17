@@ -53,3 +53,20 @@ Fri 17 May 2024 01:51:02 AM UTC:
  tests:  3|3
 total_score: 25/70
 c00d500
+Fri 17 May 2024 02:09:46 AM UTC: 
+ sudoku.c | 52 +++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 51 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:53:8: error: unused variable ‘subgrid’ [-Werror=unused-variable]
+   53 |    int subgrid[10];
+      |        ^~~~~~~
+sudoku.c:52:8: error: unused variable ‘columna’ [-Werror=unused-variable]
+   52 |    int columna[10];
+      |        ^~~~~~~
+sudoku.c:51:8: error: unused variable ‘fila’ [-Werror=unused-variable]
+   51 |    int fila[10];
+      |        ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+ab06382
