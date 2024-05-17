@@ -103,3 +103,9 @@ sudoku.c:161:10: error: implicit declaration of function ‘removeFirst’ [-Wer
 cc1: all warnings being treated as errors
 Compilation failed
 5809964
+Fri 17 May 2024 02:33:16 AM UTC: 
+ sudoku.c | 15 +++++----------
+ 1 file changed, 5 insertions(+), 10 deletions(-)
+ tests:  10|0
+total_score: 70/70
+0a946a0

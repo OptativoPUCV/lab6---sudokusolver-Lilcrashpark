@@ -141,30 +141,25 @@ int is_final(Node* n)
    return 1;
 }
 
-Node* DFS(Node* initial, int* cont)
-{
-   Stack* S = createStack();
-   push(S, initial);
-   while (!is_empty(S))
-   {
-      Node* n = top(S);
-      pop(S);
-      if (is_final(n))
-      {
-         return n;
-      }
-      List* list = get_adj_nodes(n);
-      Node* adj;
-      while ((adj = first(list)) != NULL)
-      {
-         push(S, adj);
-         removeFirst(list);  // Asume que esta función elimina el primer elemento de la lista
-      }
-      // Incrementa el contador de iteraciones si es necesario
-      if (cont != NULL) (*cont)++;
-      free(n);
-   }
-   return NULL;
+Node* DFS(Node* initial, int* cont) {
+    Stack* S = createStack();
+    push(S, initial);
+    while (!is_empty(S)) {
+        Node* n = top(S);
+        pop(S);
+        if (is_final(n)) {
+            return n;
+        }
+        List* list = get_adj_nodes(n);
+        Node* adj;
+        while ((adj = first(list)) != NULL) {
+            push(S, adj);
+            popFront(list);  // Eliminar el primer elemento de la lista
+        }
+        if (cont != NULL) (*cont)++;
+        free(n);
+    }
+    return NULL;
 }
 
 
