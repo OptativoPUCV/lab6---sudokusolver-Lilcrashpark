@@ -48,9 +48,6 @@ int is_valid(Node* n)
    int i, j;
    int k;
    int cont;
-   int fila[10];
-   int columna[10];
-   int subgrid[10];
    for (i = 0 ; i < 9 ; i++)
    {
       for (j = 0 ; j < 9 ; j++)
