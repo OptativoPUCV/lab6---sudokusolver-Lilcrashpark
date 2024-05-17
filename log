@@ -92,3 +92,14 @@ sudoku.c:162:10: error: implicit declaration of function ‘remove_first’ [-We
 cc1: all warnings being treated as errors
 Compilation failed
 d5c6d22
+Fri 17 May 2024 02:26:38 AM UTC: 
+ sudoku.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:161:10: error: implicit declaration of function ‘removeFirst’ [-Werror=implicit-function-declaration]
+  161 |          removeFirst(list);  // Asume que esta función elimina el primer elemento de la lista
+      |          ^~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+5809964
