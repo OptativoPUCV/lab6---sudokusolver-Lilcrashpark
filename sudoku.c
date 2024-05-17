@@ -43,16 +43,14 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* n)
+int is_valid(Node* n) //Funcion que valida si el sudoku es valido
 {
-   int i, j;
-   int k;
-   int cont;
-   for (i = 0 ; i < 9 ; i++)
+   int i, j, k, cont;
+   for (i = 0 ; i < 9 ; i++) //Filas
    {
-      for (j = 0 ; j < 9 ; j++)
+      for (j = 0 ; j < 9 ; j++)//Columnas
       {
-         if (n->sudo[i][j] != 0)
+         if (n->sudo[i][j] != 0) //
          {
             cont = 0;
             for (k = 0 ; k < 9 ; k++)
@@ -69,7 +67,7 @@ int is_valid(Node* n)
             cont = 0;
             for (k = 0 ; k < 9 ; k++)
             {
-               if (n->sudo[i][j] == n->sudo[k][j])
+               if (n->sudo[i][j] == n->sudo[k][j]) 
                {
                   cont++;
                }
@@ -81,7 +79,7 @@ int is_valid(Node* n)
             cont = 0;
             for (k = 0 ; k < 9 ; k++)
             {
-               if (n->sudo[i][j] == n->sudo[i/3*3 + k/3][j/3*3 + k%3])
+               if (n->sudo[i][j] == n->sudo[i/3*3 + k/3][j/3*3 + k%3]) 
                {
                   cont++;
                }
@@ -97,24 +95,24 @@ int is_valid(Node* n)
 }
 
 
-List* get_adj_nodes(Node* n)
+List* get_adj_nodes(Node* n) //Funcion que obtiene los nodos adyacentes
 {
-   List* list = createList();
+   List* list = createList(); //Crea una lista vacia
    int i, j;
-   for (i = 0 ; i < 9 ; i++)
+   for (i = 0 ; i < 9 ; i++) //Filas
    {
-      for (j = 0 ; j < 9 ; j++)
+      for (j = 0 ; j < 9 ; j++) //Columnas
       {
-         if (n->sudo[i][j] == 0)
+         if (n->sudo[i][j] == 0) 
          {
             int k;
-            for (k = 1 ; k <= 9 ; k++)
+            for (k = 1 ; k <= 9 ; k++) 
             {
                Node* adj = copy(n);
                adj->sudo[i][j] = k;
                if (is_valid(adj))
                {
-                  pushBack(list, adj);
+                  pushBack(list, adj); 
                }
             }
             return list;
@@ -141,20 +139,24 @@ int is_final(Node* n)
    return 1;
 }
 
-Node* DFS(Node* initial, int* cont) {
+Node* DFS(Node* initial, int* cont) 
+{
     Stack* S = createStack();
     push(S, initial);
-    while (!is_empty(S)) {
+    while (!is_empty(S)) 
+    {
         Node* n = top(S);
         pop(S);
-        if (is_final(n)) {
-            return n;
+        if (is_final(n))
+        {
+           return 0;
         }
         List* list = get_adj_nodes(n);
         Node* adj;
-        while ((adj = first(list)) != NULL) {
+        while ((adj = first(list)) != NULL) 
+        {
             push(S, adj);
-            popFront(list);  // Eliminar el primer elemento de la lista
+            popFront(list);
         }
         if (cont != NULL) (*cont)++;
         free(n);
